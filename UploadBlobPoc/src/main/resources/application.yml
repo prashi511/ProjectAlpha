@@ -1,0 +1,32 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: "blob-poc"
+    instance-id: ${random.int(10000,99999)}
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;Database=rae2e
+    username: sa
+    password: P@ssw0rd
+  jpa:
+    properties:
+      hibernate:
+        dialect: com.microsoft.sqlserver.jdbc.SQLServerDriver
+server.port: 8081
+#server.forward-headers-strategy: native
+server.servlet.context-path: /web-app
+spring.servlet.multipart.max-file-size: 850MB
+spring.servlet.multipart.max-request-size: 850MB
+cloud:
+  oauth:
+    enable: true
+    client-id: e0cda7b8-712d-4277-9812-d4db71bf2ce9
+    client-key: x6I3Tidp.ANkc6U1NJXUtAC-ywi_M482-6
+    tenant-id: e0f66ef5-832c-435d-bd20-58d326a64647
+    scope: e0cda7b8-712d-4277-9812-d4db71bf2ce9/.default
+    redirect-url: https://localhost:8082/kv/v1/hello
+    ms-authority-url: https://login.microsoftonline.com/
+  blob:
+    storage-name: itcdev03ddc
+    container-name: device-data-collector-files-neu
+    connection-string: DefaultEndpointsProtocol=https;AccountName=itcdev03ddc;AccountKey=RVLBBUoVebmcOIwagc3gYhcYIqUeg+GwAtD8v/+fa4DZB5Y+OUQKcJSZQZO3opvWf/VXv8vW9tf3kV3WerBdkg==;EndpointSuffix=core.windows.net
