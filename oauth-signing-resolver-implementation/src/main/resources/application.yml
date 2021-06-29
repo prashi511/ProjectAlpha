@@ -1,0 +1,26 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: "oauth-token-poc"
+    instance-id: ${random.int(10000,99999)}
+server.port: 8082
+#server.forward-headers-strategy: native
+server.servlet.context-path: /token
+spring.servlet.multipart.max-file-size: 850MB
+spring.servlet.multipart.max-request-size: 850MB
+cloud:
+  oauth:
+    enable: true
+    client-id: e0cda7b8-712d-4277-9812-d4db71bf2ce9
+    client-key: x6I3Tidp.ANkc6U1NJXUtAC-ywi_M482-6
+    tenant-id: e0f66ef5-832c-435d-bd20-58d326a64647
+    scope: e0cda7b8-712d-4277-9812-d4db71bf2ce9/.default
+    redirect-url: http://localhost:8081/
+    ms-authority-url: https://login.microsoftonline.com/${cloud.oauth.tenant-id}
+    issuer-url: https://sts.windows.net/${cloud.oauth.tenant-id}
+  blob:
+    storage-name: itcdev03ddc
+    container-name: device-data-collector-files-neu
+    connection-string: DefaultEndpointsProtocol=https;AccountName=itcdev03ddc;AccountKey=/tgKiU2FnHzdUAdnz16PrtlRik2aVhy8Ip8pkh26luhvYslhSgzB09Q2h94vutNLg9fyiYn9HPXrZYVg8E7bIA==;EndpointSuffix=core.windows.net
+
